@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TextMe</string>
+    <string name="type_here">Type here</string>
+    <string name="text_place_holder">Place holder</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="view">View</string>
+</resources>
