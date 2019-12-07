@@ -9,12 +9,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class TextFile {
+class TextFile {
     private File file;
 
-    //Creates the file and writes the content
-    TextFile(Context context, String filename, String fileContent){
+    //Creates the file
+    TextFile(Context context, String filename){
         file = new File(context.getFilesDir(), filename);
+    }
+
+    //Writes the content
+    void setContent(String fileContent) {
         try{
             FileOutputStream outputStream = new FileOutputStream(file);
             outputStream.write(fileContent.getBytes());
@@ -28,8 +32,8 @@ public class TextFile {
     String getContent(){
         String contentToString = "";
             try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                FileInputStream inputStream = new FileInputStream(file);
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 contentToString = bufferedReader.readLine();
                 bufferedReader.close();
             } catch (IOException e) {

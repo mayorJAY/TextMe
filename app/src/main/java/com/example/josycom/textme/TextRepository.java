@@ -5,15 +5,18 @@ import android.content.Context;
 /**
  * This class is used to abstract the data from the MainActivity
  */
-public class TextRepository {
-    private String mContent;
+class TextRepository {
+    private TextFile mTextFile;
 
-    TextRepository(Context context, String filename, String fileContent){
-        TextFile mTextFile = new TextFile(context, filename, fileContent);
-        mContent = mTextFile.getContent();
+    TextRepository(Context context, String filename){
+        mTextFile = new TextFile(context, filename);
+    }
+
+    void setContent(String fileContent) {
+        mTextFile.setContent(fileContent);
     }
 
     String getContent(){
-        return mContent;
+        return mTextFile.getContent();
     }
 }
